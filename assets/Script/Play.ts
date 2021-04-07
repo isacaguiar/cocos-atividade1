@@ -1,14 +1,7 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class MoveSuperGirl extends cc.Component {
+export default class Jogo extends cc.Component {
 
     @property(cc.Label)
     label: cc.Label = null;
@@ -26,9 +19,10 @@ export default class MoveSuperGirl extends cc.Component {
     mover: boolean = true;
 
     onLoad () {
-        this.positionY = this.node.position.y
-        this.positionX = this.node.position.x
-        this.node.on(cc.Node.EventType.TOUCH_START,this.mudar,this);
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.action, this)
+    }
+
+    update() {
     }
 
     start () {
